@@ -19,6 +19,7 @@ export async function POST(request: Request) {
     });
 
     const data = await response.json();
+    console.log("RAW RESPONSE:", data);
 
     if (!response.ok) {
         return NextResponse.json({ message: data.message || 'Backend extraction failed' }, { status: response.status });
