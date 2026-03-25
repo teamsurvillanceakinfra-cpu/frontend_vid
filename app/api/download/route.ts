@@ -9,6 +9,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Please provide a strictly valid URL parameter.' }, { status: 400 });
     }
 
+        if (url.toLowerCase().includes('youtube.com') || url.toLowerCase().includes('youtu.be')) {
+      return NextResponse.json({ message: 'YouTube downloading is coming soon!' }, { status: 400 });
+    }
+
     // Forward the extraction request entirely to the stable Express backend
     // which sidesteps Next.js Webpack binary bundling issues (ENOENT)
     const backendUrl = process.env.BACKEND_URL || 'https://backend-vid.onrender.com';
