@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
         if (url.toLowerCase().includes('youtube.com') || url.toLowerCase().includes('youtu.be')) {
       return NextResponse.json({ message: 'YouTube downloading is coming soon!' }, { status: 400 });
-    }elseif (url.toLowerCase().includes('dailymotion.com') || url.toLowerCase().includes('dai.ly')) {
+    }else if (url.toLowerCase().includes('dailymotion.com') || url.toLowerCase().includes('dai.ly')) {
       return NextResponse.json({ message: 'Daily Motion downloading is coming soon!' }, { status: 400 });
     }
     
