@@ -9,9 +9,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Please provide a strictly valid URL parameter.' }, { status: 400 });
     }
 
-    // if (url.toLowerCase().includes('youtube.com') || url.toLowerCase().includes('youtu.be')) {
-    //   return NextResponse.json({ message: 'YouTube downloading is coming soon!' }, { status: 400 });
-    // }
+    if (url.toLowerCase().includes('youtube.com') || url.toLowerCase().includes('youtu.be')) {
+      return NextResponse.json({ message: 'YouTube downloading is coming soon!' }, { status: 400 });
+    }
     else if (url.toLowerCase().includes('dailymotion.com') || url.toLowerCase().includes('dai.ly')) {
       return NextResponse.json({ message: 'Daily Motion downloading is coming soon!' }, { status: 400 });
     }
