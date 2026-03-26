@@ -51,11 +51,9 @@ export default function Navbar() {
             <span>Downloaders {dropdownOpen ? '▴' : '▾'}</span>
             <div className={`dropdown-menu card flex-col gap-1 ${dropdownOpen ? 'mobile-dropdown-open' : ''}`} style={{ display: 'none', position: 'absolute', top: '100%', left: '-1rem', minWidth: '220px', padding: '0.5rem', zIndex: 100 }}>
               <Link href="/instagram" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>Instagram Downloader</Link>
-              <Link href="/youtube" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>YouTube Downloader</Link>
               <Link href="/facebook" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>Facebook Downloader</Link>
               <Link href="/twitter" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>Twitter/X Downloader</Link>
               <Link href="/tiktok" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>TikTok Downloader</Link>
-              <Link href="/dailymotion" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>Dailymotion Downloader</Link>
               <Link href="/pinterest" onClick={() => setMenuOpen(false)} style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius)' }}>Pinterest Downloader</Link>
             </div>
           </div>
