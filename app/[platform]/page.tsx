@@ -5,7 +5,6 @@ import { Metadata } from 'next';
 export async function generateStaticParams() {
   return [
     { platform: 'instagram' },
-    { platform: 'youtube' },
     { platform: 'facebook' },
     { platform: 'twitter' },
     { platform: 'tiktok' },
@@ -16,7 +15,6 @@ export async function generateStaticParams() {
 
 const platformMap: Record<string, {name: string, icon: string, desc: string}> = {
   instagram: { name: 'Instagram', icon: '📸', desc: 'Download Instagram Reels, Stories, and IGTV videos in HD.' },
-  youtube: { name: 'YouTube', icon: '▶️', desc: 'Download YouTube videos in 1080p, 4K, or extract audio directly.' },
   facebook: { name: 'Facebook', icon: '📘', desc: 'Save Facebook videos to your device quickly and securely.' },
   twitter: { name: 'Twitter/X', icon: '🐦', desc: 'Download viral videos from Twitter/X without watermarks.' },
   tiktok: { name: 'TikTok', icon: '🎵', desc: 'Download TikToks without the watermark in pristine quality.' },
