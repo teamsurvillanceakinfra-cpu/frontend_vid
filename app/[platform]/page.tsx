@@ -8,7 +8,6 @@ export async function generateStaticParams() {
     { platform: 'facebook' },
     { platform: 'twitter' },
     { platform: 'tiktok' },
-    { platform: 'dailymotion' },
     { platform: 'pinterest' },
   ];
 }
@@ -18,7 +17,6 @@ const platformMap: Record<string, {name: string, icon: string, desc: string}> = 
   facebook: { name: 'Facebook', icon: '📘', desc: 'Save Facebook videos to your device quickly and securely.' },
   twitter: { name: 'Twitter/X', icon: '🐦', desc: 'Download viral videos from Twitter/X without watermarks.' },
   tiktok: { name: 'TikTok', icon: '🎵', desc: 'Download TikToks without the watermark in pristine quality.' },
-  dailymotion: { name: 'Dailymotion', icon: '📺', desc: 'Download high-quality videos from Dailymotion easily and securely.' },
   pinterest: { name: 'Pinterest', icon: '📌', desc: 'Download Pinterest video pins and boards in native HD.' },
 };
 
