@@ -1,3 +1,4 @@
+export const maxDuration = 60; // Allow enough time for backend extractions to finish
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
@@ -9,16 +10,27 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Please provide a strictly valid URL parameter.' }, { status: 400 });
     }
 
+    // Image URL validation
+    const imageExtensions = /\.(jpg|jpeg|png|gif|webp|svg|bmp|tiff)($|\?)/i;
+    const imagePatterns = [
+        /fbcdn\.net\/v\/t\d+\.\d+-\d+\/.*\.jpg/i,
+        /instagram\..*\/.*\.jpg/i,
+        /pbs\.twimg\.com\/media\/.*\.jpg/i
+    ];
+
+    const isImage = imageExtensions.test(url) || imagePatterns.some(pattern => pattern.test(url));
+
+    if (isImage) {
+      return NextResponse.json({ message: 'this is a image link' }, { status: 400 });
+    }
+
     if (url.toLowerCase().includes('youtube.com') || url.toLowerCase().includes('youtu.be')) {
       return NextResponse.json({ message: 'YouTube downloading is coming soon!' }, { status: 400 });
     }
-    else if (url.toLowerCase().includes('dailymotion.com') || url.toLowerCase().includes('dai.ly')) {
-      return NextResponse.json({ message: 'Daily Motion downloading is coming soon!' }, { status: 400 });
-    }
-    
+
     // Forward the extraction request entirely to the stable Express backend
     // which sidesteps Next.js Webpack binary bundling issues (ENOENT)
-    const backendUrl = process.env.BACKEND_URL || 'https://backend-vid.onrender.com';
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
     const response = await fetch(`${backendUrl}/api/download`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -26,7 +38,6 @@ export async function POST(request: Request) {
     });
 
     const data = await response.json();
-    console.log("RAW RESPONSE:", data);
 
     if (!response.ok) {
         return NextResponse.json({ message: data.message || 'Backend extraction failed' }, { status: response.status });
