@@ -18,11 +18,9 @@ export default function Footer() {
             <h4 style={{ fontWeight: '600', marginBottom: '1.25rem', color: 'var(--foreground)' }}>Downloaders</h4>
             <div className="flex flex-col gap-3" style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
               <Link href="/instagram">Instagram</Link>
-              <Link href="/youtube">YouTube</Link>
               <Link href="/facebook">Facebook</Link>
               <Link href="/twitter">Twitter/X</Link>
               <Link href="/tiktok">TikTok</Link>
-              <Link href="/dailymotion">Dailymotion</Link>
               <Link href="/pinterest">Pinterest</Link>
             </div>
           </div>
