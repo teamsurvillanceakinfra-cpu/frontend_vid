@@ -42,6 +42,22 @@ export default function DownloaderForm({
       return;
     }
 
+    // Image URL validation
+    const imageExtensions = /\.(jpg|jpeg|png|gif|webp|svg|bmp|tiff)($|\?)/i;
+    // Common social media image patterns that might not have extensions but are clearly images
+    const imagePatterns = [
+        /fbcdn\.net\/v\/t\d+\.\d+-\d+\/.*\.jpg/i, // Facebook images
+        /instagram\..*\/.*\.jpg/i, // Instagram images
+        /pbs\.twimg\.com\/media\/.*\.jpg/i // Twitter images
+    ];
+
+    const isImage = imageExtensions.test(url) || imagePatterns.some(pattern => pattern.test(url));
+
+    if (isImage) {
+      setError("this is a image link");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -137,7 +153,7 @@ export default function DownloaderForm({
               whiteSpace: "nowrap",
             }}
           >
-                        {loading ? (
+            {loading ? (
               <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <svg
                   width="18"
