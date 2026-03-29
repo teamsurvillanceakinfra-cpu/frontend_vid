@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     // Forward the extraction request entirely to the stable Express backend
     // which sidesteps Next.js Webpack binary bundling issues (ENOENT)
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
+    const backendUrl = process.env.BACKEND_URL || 'https://backend-vid.onrender.com';
     const response = await fetch(`${backendUrl}/api/download`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
